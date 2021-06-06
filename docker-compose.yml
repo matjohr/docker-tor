@@ -1,0 +1,30 @@
+version: "3"
+
+networks:
+    tor-net:
+    external:
+        name: tor-net
+
+services:
+    tor:
+        container_name: tor
+        ports:
+            - 8118:8118
+            - 9050:9050
+        image: dperson/torproxy
+        networks:
+            - tor-net
+
+
+    tor-test:
+        image: tor-test-node:latest
+        build: ./
+        container_name: tor-test
+        networks:
+        - tor-net
+        tty: true 
+        environment:
+        - HTTP_PROXY="tor:8118"
+        - http_proxy="tor:8118"
+        - HTTPS_PROXY="tor:8118"
+        - https_proxy="tor:8118"
