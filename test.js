@@ -17,7 +17,6 @@ const client = got.extend({
 });
 
 async function run() {
-//	  const body = await client.get("http://jsonip.com/").json();
 	const body = await client.get("http://ipinfo.io/").json();
 	return body;
 
