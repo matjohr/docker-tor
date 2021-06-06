@@ -14,3 +14,5 @@ Test if tor is working:
 ```
 sudo docker exec -it tor-test node test.js
 ```
+
+motivated by: https://dev.to/koistya/run-node-js-scripts-from-under-a-tor-http-proxy-b1
